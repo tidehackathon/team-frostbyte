@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 178.52 138.83">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-1, .cls-3, .cls-4, .cls-5 {
+        stroke: #8888ba;
+      }
+
+      .cls-1, .cls-6, .cls-5 {
+        fill: #8888ba;
+      }
+
+      .cls-2 {
+        fill: #594fba;
+        font-family: MS-PGothic, 'MS PGothic';
+        font-size: 44.39px;
+        stroke: #594fba;
+      }
+
+      .cls-2, .cls-5 {
+        stroke-width: .5px;
+      }
+
+      .cls-3 {
+        fill: red;
+      }
+
+      .cls-7 {
+        letter-spacing: -.05em;
+      }
+
+      .cls-4 {
+        fill: none;
+      }
+
+      .cls-6 {
+        font-family: YuGothicUI-Semilight, 'Yu Gothic UI';
+        font-size: 11.49px;
+        font-weight: 300;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <circle class="cls-5" cx="51.1" cy="44.96" r="1.29"/>
+      <circle class="cls-5" cx="51.1" cy="38.05" r="1.29"/>
+      <circle class="cls-5" cx="57.75" cy="48.52" r="1.29"/>
+      <circle class="cls-5" cx="57.75" cy="34.63" r="1.29"/>
+      <circle class="cls-5" cx="58.87" cy="65.78" r="1.29"/>
+      <circle class="cls-5" cx="67.68" cy="74.46" r="1.29"/>
+      <circle class="cls-5" cx="71.81" cy="54.2" r="1.29"/>
+      <circle class="cls-5" cx="79.26" cy="61.62" r="1.29"/>
+      <circle class="cls-5" cx="72.26" cy="29.93" r="1.29"/>
+      <circle class="cls-5" cx="78.74" cy="23.41" r="1.29"/>
+      <circle class="cls-5" cx="58.18" cy="18.74" r="1.29"/>
+      <circle class="cls-5" cx="67.68" cy="9.11" r="1.29"/>
+      <circle class="cls-5" cx="83.92" cy="8.79" r="1.29"/>
+      <circle class="cls-5" cx="98.41" cy="8.79" r="1.29"/>
+      <circle class="cls-5" cx="87.29" cy="1.54" r="1.29"/>
+      <circle class="cls-5" cx="95.02" cy="1.54" r="1.29"/>
+      <circle class="cls-5" cx="114.2" cy="8.79" r="1.29"/>
+      <circle class="cls-5" cx="124.27" cy="18.9" r="1.29"/>
+      <circle class="cls-5" cx="103.5" cy="22.95" r="1.29"/>
+      <circle class="cls-5" cx="110.05" cy="29.62" r="1.29"/>
+      <circle class="cls-5" cx="124.59" cy="34.63" r="1.29"/>
+      <circle class="cls-5" cx="131.41" cy="38.05" r="1.29"/>
+      <circle class="cls-5" cx="131.29" cy="44.96" r="1.29"/>
+      <circle class="cls-5" cx="124.59" cy="48.06" r="1.29"/>
+      <circle class="cls-5" cx="110.45" cy="54.27" r="1.29"/>
+      <circle class="cls-5" cx="103.12" cy="61.58" r="1.29"/>
+      <circle class="cls-5" cx="114.41" cy="74.63" r="1.29"/>
+      <circle class="cls-5" cx="123.64" cy="65.56" r="1.29"/>
+      <circle class="cls-5" cx="98.41" cy="75.19" r="1.29"/>
+      <circle class="cls-5" cx="83.94" cy="75.19" r="1.29"/>
+      <circle class="cls-5" cx="87.29" cy="81.84" r="1.29"/>
+      <circle class="cls-5" cx="95.02" cy="81.84" r="1.29"/>
+    </g>
+    <polyline class="cls-4" points="6.25 39.34 12.35 46.9 20.15 55.99 8.52 69.42"/>
+    <polyline class="cls-4" points="27.52 53.08 48.63 28.63 65.81 28.63"/>
+    <polyline class="cls-4" points="34.8 60.69 46.3 74.32 46.3 82.5 27.47 60.69 9.85 81.18"/>
+    <line class="cls-4" x1="38" y1="33.63" x2="25.07" y2="48.82"/>
+    <ellipse class="cls-1" cx="64.82" cy="28.63" rx="1.26" ry="1.29"/>
+    <ellipse class="cls-1" cx="38" cy="33.63" rx="1.26" ry="1.29"/>
+    <line class="cls-3" x1="30.47" y1="70.25" x2="40.12" y2="82.05"/>
+    <g>
+      <polyline class="cls-4" points="14.33 34.63 6.89 34.64 25.72 56.43 3.2 82.5 3.2 75.61"/>
+      <ellipse class="cls-5" cx="14.33" cy="34.63" rx="1.26" ry="1.29"/>
+    </g>
+    <g>
+      <ellipse class="cls-5" cx="3.2" cy="75.61" rx="1.26" ry="1.29"/>
+      <ellipse class="cls-5" cx="8.81" cy="69.42" rx="1.26" ry="1.29"/>
+      <ellipse class="cls-5" cx="27.52" cy="53.08" rx="1.26" ry="1.29"/>
+      <ellipse class="cls-5" cx="34.8" cy="60.69" rx="1.26" ry="1.29"/>
+      <ellipse class="cls-5" cx="6.59" cy="40.1" rx="1.26" ry="1.29"/>
+      <ellipse class="cls-5" cx="30.02" cy="69.72" rx="1.26" ry="1.29"/>
+      <ellipse class="cls-5" cx="39.68" cy="81.51" rx="1.26" ry="1.29"/>
+    </g>
+    <line class="cls-3" x1="16.56" y1="39.1" x2="25.07" y2="48.82"/>
+    <path class="cls-5" d="M91.17,29.55c-6.81,0-12.33,5.58-12.33,12.47s5.52,12.47,12.33,12.47,12.33-5.58,12.33-12.47-5.52-12.47-12.33-12.47Zm0,19.7c-4,0-7.23-3.23-7.23-7.23s3.23-7.23,7.23-7.23,7.23,3.24,7.23,7.23-3.24,7.23-7.23,7.23Z"/>
+    <polyline class="cls-4" points="91.17 7.61 91.17 42.03 71.89 22.63 62.65 22.95 58.18 18.74"/>
+    <polyline class="cls-4" points="114.2 8.79 109.87 13.18 110.13 22.95 91.17 42.03 125.35 41.78 128.49 38.05 131.41 38.05"/>
+    <polyline class="cls-4" points="58.87 65.78 63.2 61.42 71.89 61.42 91.17 42.03 57 41.78 54.06 38.05 51.1 38.05"/>
+    <polyline class="cls-4" points="123.64 65.56 119.14 61.42 110.45 61.42 91.17 42.03 91.17 75.96 87.29 78.83 87.29 81.84"/>
+    <polyline class="cls-4" points="71.89 22.63 71.89 13.57 67.68 9.11"/>
+    <polyline class="cls-4" points="110.13 22.95 119.69 22.95 124.27 18.9"/>
+    <polyline class="cls-4" points="110.45 61.42 110.45 70 114.41 74.63"/>
+    <polyline class="cls-4" points="71.89 61.42 71.89 70 67.68 74.46"/>
+    <polyline class="cls-4" points="83.94 8.38 83.94 15.64 91.17 22.63 98.4 15.87 98.4 8.38"/>
+    <polyline class="cls-4" points="83.94 75.19 83.94 68.42 91.17 61.42 98.4 68.42 98.41 75.19"/>
+    <polyline class="cls-4" points="57.75 34.63 64.84 34.63 71.89 42.03 64.6 48.52 57.75 48.52"/>
+    <polyline class="cls-4" points="124.59 34.63 117.55 34.79 110.45 41.78 117.85 48.06 124.59 48.06"/>
+    <polyline class="cls-4" points="87.29 1.54 87.29 4.53 90.94 7.61 95.02 4.58 95.02 1.54"/>
+    <polyline class="cls-4" points="91.17 75.96 95.02 78.83 95.02 81.84"/>
+    <polyline class="cls-4" points="57 41.78 53.85 44.96 51.1 44.96"/>
+    <polyline class="cls-4" points="125.35 41.78 128.38 44.96 131.29 44.96"/>
+    <polyline class="cls-4" points="72.26 29.55 79.15 29.93 78.84 22.95"/>
+    <polyline class="cls-4" points="103.5 22.95 103.5 29.62 110.05 29.55"/>
+    <polyline class="cls-4" points="71.81 54.2 79.26 54.2 79.26 61.62"/>
+    <polyline class="cls-4" points="103.12 61.58 103.12 54.2 110.45 54.27"/>
+    <polyline class="cls-4" points="152.3 82.29 158.34 76.51 158.34 55.64 168.6 55.64 168.6 45.47 157.95 45.47 157.72 34.63 177.27 34.79 177.27 28.73 118.96 28.63"/>
+    <polyline class="cls-4" points="148.42 75.86 148.42 34.69 137.92 34.63"/>
+    <line class="cls-4" x1="141.15" y1="44.82" x2="141.15" y2="75.84"/>
+    <line class="cls-3" x1="131.41" y1="22.95" x2="177.27" y2="23.41"/>
+    <g>
+      <circle class="cls-5" cx="118.96" cy="28.63" r="1.29"/>
+      <circle class="cls-5" cx="137.92" cy="34.63" r="1.29"/>
+      <circle class="cls-5" cx="141.15" cy="44.82" r="1.29"/>
+      <circle class="cls-5" cx="141.15" cy="75.84" r="1.29"/>
+      <circle class="cls-5" cx="148.42" cy="75.86" r="1.29"/>
+      <circle class="cls-5" cx="153.05" cy="81.51" r="1.29"/>
+      <circle class="cls-5" cx="176.98" cy="23.41" r="1.29"/>
+    </g>
+    <text class="cls-2" transform="translate(.25 120.9) scale(.98 1)"><tspan x="0" y="0">Frostbyte</tspan></text>
+    <text class="cls-6" transform="translate(1.94 135.36)"><tspan x="0" y="0">Crafting code. </tspan><tspan class="cls-7" x="72.43" y="0">F</tspan><tspan x="77.34" y="0">reezing boundaries.</tspan></text>
+  </g>
+</svg>
