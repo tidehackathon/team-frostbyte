@@ -11,6 +11,7 @@ using Tide.Data.Models.Domains;
 using Tide.Data.Models.Duties;
 using Tide.Data.Models.FA;
 using Tide.Data.Models.Issues;
+using Tide.Data.Models.Nato;
 using Tide.Data.Models.Objectives;
 using Tide.Data.Models.Standards;
 using Tide.Data.Models.Tcs;
@@ -18,7 +19,7 @@ using Tide.Data.Models.Tts;
 
 namespace Tide.Data.Ef
 {
-    public class TideContext:DbContext
+    public class TideContext : DbContext
     {
         public TideContext() : base() { }
         public TideContext(DbContextOptions<TideContext> options) : base(options)
@@ -43,6 +44,7 @@ namespace Tide.Data.Ef
         public DbSet<TestTemplateCycle> TemplateCycles { get; set; } = null!;
         public DbSet<TestTemplateResult> TemplateResults { get; set; } = null!;
         public DbSet<TestTemplateDescription> TemplateDescriptions { get; set; } = null!;
+        public DbSet<Ndpp> Ndpps { get; set; } = null!;
 
         public DbSet<TtYearAnomaly> TtYearAnomalies { get; set; } = null!;
         protected override void OnModelCreating(ModelBuilder builder)
@@ -78,7 +80,7 @@ namespace Tide.Data.Ef
             builder.Entity<TtYearAnomaly>().HasOne(x => x.Template).WithMany().HasForeignKey(x => x.TemplateId);
             builder.Entity<TtYearAnomaly>().HasOne(x => x.Fa).WithMany().HasForeignKey(x => x.FaId);
 
-            builder.Entity<CapabilityDescription>().HasOne(x => x.Capability).WithOne(x => x.Description).HasForeignKey<CapabilityDescription>(x=>x.CapabilityId);
+            builder.Entity<CapabilityDescription>().HasOne(x => x.Capability).WithOne(x => x.Description).HasForeignKey<CapabilityDescription>(x => x.CapabilityId);
             builder.Entity<ObjectiveDescription>().HasOne(x => x.Objective).WithOne(x => x.Description).HasForeignKey<ObjectiveDescription>(x => x.ObjectiveId);
             builder.Entity<TestTemplateDescription>().HasOne(x => x.Template).WithOne(x => x.Description).HasForeignKey<TestTemplateDescription>(x => x.TemplateId);
             builder.Entity<TestTemplateResult>().HasOne(x => x.Template).WithOne(x => x.Result).HasForeignKey<TestTemplateResult>(x => x.TemplateId);

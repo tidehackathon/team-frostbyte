@@ -6,7 +6,7 @@
 using Newtonsoft.Json.Linq;
 using Parser.Commons;
 
-string cycle = "cwix22";
+string cycle = "cwix19";
 
 string ccDirectory = $@"D:\BlackOps\FrostByteRepo\frostbyte\data\normalized\{cycle}\cc";
 string objDirectory = $@"D:\BlackOps\FrostByteRepo\frostbyte\data\normalized\{cycle}\ob";
@@ -14,8 +14,8 @@ string ttDirectory = $@"D:\BlackOps\FrostByteRepo\frostbyte\data\normalized\{cyc
 
 
 ParseDirectory(ccDirectory, "standards");
-ParseDirectory(objDirectory, "relevantstandards");
-ParseDirectory(ttDirectory, "standards");
+//ParseDirectory(objDirectory, "relevantstandards");
+//ParseDirectory(ttDirectory, "standards");
 
 
 void ParseDirectory(string directory, string key)

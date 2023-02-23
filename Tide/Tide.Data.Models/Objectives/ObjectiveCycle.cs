@@ -25,6 +25,9 @@ namespace Tide.Data.Models.Objectives
         public string Title { get; set; } = string.Empty;
         public string Number { get; set; } = string.Empty;
         public decimal InteroperabilityScore { get; set; }
+        public int TcCount { get; set; }
+        public int TcSuccess { get; set; }
+        public int TcFail { get; set; }
         public ObjectiveScope Scope { get; set; }
         public ICollection<StandardObjectiveMap> Standards { get; set; }
         public ICollection<ObjectiveFaMap> Fas { get; set; }

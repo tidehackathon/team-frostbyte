@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Single Node Example</title>
+    <script src="https://unpkg.com/@vis/data@9.4.0/dist/umd/vis-data.min.js"></script>
+    <script src="https://unpkg.com/@vis/network@9.4.0/dist/umd/vis-network.min.js"></script>
+    <style type="text/css">
+        #mynetwork {
+            width: 600px;
+            height: 400px;
+            border: 1px solid lightgray;
+        }
+    </style>
+</head>
+<body>
+    <div id="mynetwork"></div>
+    <script type="text/javascript">
+        // create an array with nodes
+        var nodes = new vis.DataSet([
+            {id: 1, label: "Node 1", color: "red"}
+        ]);
+
+        // create an array with edges
+        var edges = new vis.DataSet([]);
+
+        // create a network
+        var container = document.getElementById("mynetwork");
+        var data = {
+            nodes: nodes,
+            edges: edges
+        };
+        var options = {};
+        var network = new vis.Network(container, data, options);
+
+        // change the color of node 1 to blue on click
+        network.on("click", function(params) {
+            if (params.nodes.length > 0) {
+                var clickedNodeId = params.nodes[0];
+                if (clickedNodeId === 1) {
+                    nodes.update({id: clickedNodeId, color: "blue"});
+                }
+            }
+        });
+    </script>
+</body>
+</html>

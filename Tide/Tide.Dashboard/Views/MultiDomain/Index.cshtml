@@ -1,9 +1,38 @@
 ﻿@{
     ViewData["Title"] = "Multi domain";
+
+    var tabData = new List<(int Cycle, string ViewName)>()
+    {
+    //    (Cycle: 2019, "~/Views/MultiDomain/_FAMultiDomain19.cshtml"),
+        (Cycle: 2020, "~/Views/MultiDomain/_FAMultiDomain20.cshtml"),
+        (Cycle: 2021, "~/Views/MultiDomain/_FAMultiDomain21.cshtml"),
+        (Cycle: 2022, "~/Views/MultiDomain/_FAMultiDomain22.cshtml"),
+    };
 }
 
-<vc:plot id="chartdivTimeline" name="Multi Domain interoperability (FA)" height="600"></vc:plot>
+<div class="card shadow-sm mb-10">
+    <div class="card-body">
+        <h1>Multidomain interoperabiliy statistics</h1>
+        <p>This page contains informations which highlight capabilities and focus areas statistics from a multi domain perspective.</p>
+    </div>
+</div>
 
+<vc:plot id="chartdivTimeline" name="Multi Domain interoperability for FA based on cross-focus-areas testing results" height="600"></vc:plot>
+
+<div class="mt-15"></div>
+
+<vc:cycles-card title="Focus area multi domain connections" views-data="tabData"></vc:cycles-card>
+
+<div class="mt-15"></div>
+
+<div class="row px-0 mt-10">
+    <div class="col">
+        <vc:plot id="interoperabilitypartial" name="Interoperability (components)" height="300"></vc:plot>
+    </div>
+    <div class="col">
+        <vc:plot id="interoperabilityfull" name="Interoperability" height="300"></vc:plot>
+    </div>
+</div>
 
 
 

@@ -4,7 +4,8 @@
         model = {
             data: [],
             seriesCount: 0,
-            legendLabels: []
+            legendLabels: [],
+            labelColors: []
         };
         id = null;
         options = {
@@ -25,7 +26,8 @@
             //                { x: 0.2, y: 'FFT' },
             //                { x: 0.25, y: 'Maritime' }
             //            ],
-            //            id: '2022'
+            //            id: '2022',
+            //            color: '#FF0000'
             //        },
             //        {
             //            data: [
@@ -57,11 +59,13 @@
 
             var labels = {};
             var legendLabels = [];
+            var labelColors = [];
 
             // Iterate through series to retrieve data.
             for (var i = 0; i < model.lines.length; i++) {
                 let series = model.lines[i];
                 legendLabels[i] = series.id;
+                labelColors[i] = series.color;
 
                 for (let j = 0; j < series.data.length; j++) {
                     let entry = series.data[j];
@@ -78,7 +82,8 @@
             this.model = {
                 data: Object.values(labels),
                 seriesCount: model.lines.length,
-                legendLabels: legendLabels
+                legendLabels: legendLabels,
+                labelColors: labelColors
             };
 
         }
@@ -129,8 +134,8 @@
 
                 // Add series
 
-                var createSeries = (name, field) => {
-                    var series = chart.series.push(am5xy.LineSeries.new(root, {
+                var createSeries = (name, field, color) => {
+                    let options = {
                         name: name,
                         xAxis: xAxis,
                         yAxis: yAxis,
@@ -142,8 +147,15 @@
                             pointerOrientation: "horizontal",
                             labelText: "[bold]{name}[/]\n{categoryX}: {valueY}"
                         })
-                    }));
+                    };
 
+                    if (color) {
+                        options.stroke = am5.color(color)
+                    }
+
+
+                    var series = chart.series.push(am5xy.LineSeries.new(root, options));
+                     
 
                     if (this.options.fill) {
                         series.fills.template.setAll({
@@ -157,7 +169,7 @@
                             return am5.Bullet.new(root, {
                                 sprite: am5.Circle.new(root, {
                                     radius: 4,
-                                    fill: series.get("fill")
+                                    fill: series.get("fill")                                    
                                 })
                             });
                         });
@@ -169,7 +181,7 @@
                 }
 
                 for (let i = 0; i < this.model.seriesCount; i++) {
-                    createSeries(this.model.legendLabels[i], "value" + i);
+                    createSeries(this.model.legendLabels[i], "value" + i, this.model.labelColors[i]);
                 }
 
 

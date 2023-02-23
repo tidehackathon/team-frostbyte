@@ -1,0 +1,27 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, Tide.Dashboard
+
+@model Tide.Dashboard.ViewsComponents.CyclesCard.CyclesCardViewModel
+
+
+<div class="card shadow-sm" data-cwix-card="true">
+    <div class="card-header">
+        <h3 class="card-title">@Model.Name</h3>
+        <div class="card-toolbar">
+            <select class="form-select" data-cwix-select="true">
+                @foreach (var item in Model.ViewsData)
+                {
+                    <option value="@item.Cycle">CWIX@(item.Cycle)</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="card-body">
+        @foreach (var item in Model.ViewsData)
+        {
+            <div data-cwix-id="@item.Cycle">
+                <partial name="@item.View"></partial>
+            </div>
+        }
+    </div>
+</div>

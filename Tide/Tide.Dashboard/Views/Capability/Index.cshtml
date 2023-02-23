@@ -1,4 +1,4 @@
-﻿@using Tide.Dashboard.Models.Capability;
+﻿    @using Tide.Dashboard.Models.Capability;
 @model CapabilityViewModel
 
 @{
@@ -27,6 +27,14 @@
         <vc:plot id="interoperabilityfull" name="Interoperability" height="300"></vc:plot>
     </div>
 </div>
+
+<div class="mt-15"></div>
+
+<vc:plot id="networkcapability" name="Capability multidomain evolution over time" height="650"></vc:plot>
+
+<div class="mt-15"></div>
+
+<vc:plot id="heatmapcapability" name="Capability multidomain evolution over time" height="650"></vc:plot>
 
 @section scripts{
     <script src="/js/capability/index.js" asp-append-version="true"></script>

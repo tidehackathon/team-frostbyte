@@ -10,11 +10,12 @@ namespace Tide.Dashboard.Converters
             _modelBuild= new StackedDrawerModel();
         }
 
-        public StackedDrawerModelConverter<Type> AddGroup(List<Type> data, string lineId, Func<Type, StackedDrawerModel.Data> mappingFunction)
+        public StackedDrawerModelConverter<Type> AddGroup(List<Type> data, string lineId, Func<Type, StackedDrawerModel.Data> mappingFunction, string? color = null)
         {
             List<StackedDrawerModel.Data> polarData = data.Select(mappingFunction).ToList();
             _modelBuild.Lines.Add(new SeriesData()
             {
+                Color = color,
                 Data = polarData,
                 Id = lineId,
             });
@@ -36,6 +37,8 @@ namespace Tide.Dashboard.Converters
         public class SeriesData
         {
             public string Id { get; set; }
+
+            public string? Color { get; set; }
 
             public List<Data> Data { get; set; }
         }

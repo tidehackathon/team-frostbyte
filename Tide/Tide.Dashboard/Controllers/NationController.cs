@@ -7,6 +7,7 @@ using Tide.Data.Models.FA;
 
 namespace Tide.Dashboard.Controllers
 {
+    using static Tide.Dashboard.DAL.NationDatabaseHelper;
     using NationYearData = Tuple<FocusArea, decimal, decimal>;
 
     public class NationController : Controller
@@ -19,6 +20,58 @@ namespace Tide.Dashboard.Controllers
         {
             return View("/Views/Nation/Index.cshtml", new NationViewModel() { NationId = nationId });
         }
+
+
+        public IActionResult Interoperability(int nationId)
+        {
+            var converter = new StackedDrawerModelConverter<NationInteroperability>();
+
+            var helper = new NationDatabaseHelper();
+
+            converter.AddGroup(
+                data: helper.GetInteroperability(nationId, Utils.StartCycle, Utils.CyclesCount),
+                lineId: "Interoperability",
+                color: Utils.GREEN_COLOR,
+                mappingFunction: item => new StackedDrawerModel.Data
+                {
+                    X = item.Interoperability,
+                    Y = item.Year.ToString()
+                });
+
+            return Json(converter.Convert());
+        }
+
+        public IActionResult PartialInteroperability(int nationId)
+        {
+            var converter = new StackedDrawerModelConverter<NationInteroperability>();
+
+            var helper = new NationDatabaseHelper();
+
+            var interoperabilityData = helper.GetPartialInteroperability(nationId, Utils.StartCycle, Utils.CyclesCount);
+
+            converter.AddGroup(
+                data: interoperabilityData.BaseInteroperability,
+                lineId: "Base Interoperability",
+                color: Utils.BLUE_COLOR,
+                mappingFunction: item => new StackedDrawerModel.Data
+                {
+                    X = item.Interoperability,
+                    Y = item.Year.ToString()
+                });
+
+            converter.AddGroup(
+            data: interoperabilityData.CurrentInteroperability,
+            lineId: "Current Interoperability",
+            color: Utils.YELLOW_COLOR,
+            mappingFunction: item => new StackedDrawerModel.Data
+            {
+                X = item.Interoperability,
+                Y = item.Year.ToString()
+            });
+
+            return Json(converter.Convert());
+        }
+
 
         public IActionResult Evolution(int nationId)
         {

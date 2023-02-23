@@ -22,7 +22,6 @@
 
 	<ItemGroup>
 	  <Folder Include="wwwroot\lib\amcharts\" />
-	  <Folder Include="Views\MultiDomain\" />
 	  <Folder Include="wwwroot\js\multidomain\" />
 	</ItemGroup>
 

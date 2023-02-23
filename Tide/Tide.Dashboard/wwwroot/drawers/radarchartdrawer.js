@@ -8,25 +8,44 @@
 
         constructor(id, model) {
             this.id = id;
-                      
             this.#preprocessModel(model);
             this.#init();
         }
 
         #preprocessModel(model) {
-            // Normalize data, modify it and attach new value as shownValue
+            // Get labels;
+            var labels = [];
             for (const values of model["groups"]) {
-                const id = values["id"];
-
                 for (var value of values["values"]) {
                     const label = value["label"];
-                    const threshold = value["threshold"];
-                    const shownValue = (value["value"] / threshold) * 100;
-                    value["shownValue"] = id + ": " + value["value"];
-                    value["value"] = shownValue;
+                    if (!labels.map((e) => e.label).includes(label)) {
+                        labels.push({
+                            label: label,
+                        });
+                    }
                 }
             }
 
+
+            // Normalize data, modify it and attach new value as shownValue
+            for (const values of model["groups"]) {
+                const id = values["id"];
+                for (var value of values["values"]) {
+                    // Remove values that are 0 from the modelCopy
+                    if (value["value"] == 0) {
+                        //delete value["value"];
+                        // values["values"].splice(values["values"].indexOf(value), 1);
+                    } else {
+                        const threshold = value["threshold"];
+                        const actualValue = (value["value"] / threshold) * 100;
+                        value["shownValue"] = id + ": " + value["value"];
+                        value["value"] = actualValue;
+                    }
+                }
+            }
+
+            model.labels = labels;
+            console.log({ model });
             this.model = model;
         }
 
@@ -65,11 +84,11 @@
                 xRenderer.labels.template.setAll({
                     radius: 20,
                     fontSize: 14,
-                    textType: "radial",
+                    textType: "adjusted",
                     // Allign labels to be horizontal
                 });
                 xRenderer.grid.template.setAll({
-                    opacity: 0
+                    // opacity: 0
                 });
 
                 var xAxis = chart.xAxes.push(
@@ -87,6 +106,8 @@
 
                 var yAxis = chart.yAxes.push(
                     am5xy.ValueAxis.new(root, {
+                        min: 0,
+                        max: 100,
                         visible: false,
                         renderer: yRenderer,
                     })
@@ -96,6 +117,9 @@
                 var _series = [];
 
                 for (const values of this.model["groups"]) {
+                    let random_color =
+                        "#" + Math.floor(Math.random() * 16777215).toString(16);
+
                     var to_add = chart.series.push(
                         am5radar.RadarLineSeries.new(root, {
                             name: values["id"],
@@ -104,26 +128,28 @@
                             valueYField: "value",
                             categoryXField: "label",
                             tooltip: am5.Tooltip.new(root, {
-                                labelText: "{shownValue}",
+                                labelText: "{shownValue} / {threshold}",
                             }),
-                            stroke: am5.color(0x000000),
+                            stroke: am5.color(random_color),
                         })
                     );
 
                     to_add.strokes.template.setAll({
-                        fill: am5.color(0x000000),
-                        strokeWidth: 4,
-                        fillOpacity: 0.5,
+                        fill: am5.color(random_color),
+                        fillOpacity: 0.6,
+                        strokeWidth: 3,
                     });
 
-                    to_add.bullets.push(function () {
-                        return am5.Bullet.new(root, {
-                            sprite: am5.Circle.new(root, {
-                                radius: 4,
-                                fill: am5.color(0x000000),
-                            }),
-                        });
-                    });
+                    // Set color only for this series
+
+                    // to_add.bullets.push(function () {
+                    //   return am5.Bullet.new(root, {
+                    //     sprite: am5.Circle.new(root, {
+                    //       radius: 3,
+                    //       fill: am5.color(0x00),
+                    //     }),
+                    //   });
+                    // });
 
                     // Add legend
                     var legend = chart.children.push(am5.Legend.new(root, {}));
@@ -133,8 +159,9 @@
 
                     _series.push(to_add);
 
-                    xAxis.data.setAll(values["values"]);
                 }
+
+                xAxis.data.setAll(this.model.labels);
 
                 for (var series of _series) series.appear(1000);
 

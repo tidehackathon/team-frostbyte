@@ -18,6 +18,18 @@
 <input type="hidden" id="nation_id" value="@Model.NationId" />
 
 <vc:plot id="nationevolution" name="Nation Evolution" height="500"></vc:plot>
+
+<div class="mt-15"></div>
+
+<div class="row px-0 mt-10">
+    <div class="col">
+        <vc:plot id="interoperabilitypartial" name="Interoperability (components)" height="300"></vc:plot>
+    </div>
+    <div class="col">
+        <vc:plot id="interoperabilityfull" name="Interoperability" height="300"></vc:plot>
+    </div>
+</div>
+
  
 
 @section scripts{

@@ -4,6 +4,7 @@ using Tide.Normalize;
 using Tide.Normalize.Capabilities;
 using Tide.Normalize.Countries;
 using Tide.Normalize.Fas;
+using Tide.Normalize.Nato;
 using Tide.Normalize.Objectives;
 using Tide.Normalize.Standards;
 using Tide.Normalize.Tcs;
@@ -42,7 +43,7 @@ RELOAD:
                 {
                     Console.WriteLine("Parsing nations, please wait ...");
                     CountryUtils.Save();
-                    
+
                 }
                 catch
                 {
@@ -163,7 +164,7 @@ RELOAD:
                     Console.WriteLine("Parsing tcs, please wait ...");
                     TcUtils.Save();
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Console.WriteLine("Operation failed.");
                 }
@@ -215,6 +216,19 @@ RELOAD:
                 }
                 goto RELOAD;
             }
+        case 14:
+            {
+                try
+                {
+                    Console.WriteLine("Importing ndpp ...");
+                    NdppUtils.Save();
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine("Operation failed.");
+                }
+                goto RELOAD;
+            }
         case 20:
             {
                 try
@@ -222,7 +236,7 @@ RELOAD:
                     Console.WriteLine("Testing ...");
                     CapabilitiesUtils.CalculateCapabilityObjectiveInteroperability();
                     CapabilitiesUtils.CalculateObjectiveInteroperability();
-                    
+
 
                     CapabilitiesUtils.CalculateFaInteroperability();
 

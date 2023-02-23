@@ -16,7 +16,7 @@ namespace Tide.Dashboard.Controllers
             var helper = new CapabilityDatabaseHelper();
 
             var capability = helper.GetCapability(capabilityId);
-            
+
             return View("/Views/Capability/Index.cshtml", new CapabilityViewModel()
             {
                 CapabilityName = capability.Name,
@@ -33,6 +33,7 @@ namespace Tide.Dashboard.Controllers
             converter.AddGroup(
                 data: helper.GetInteroperability(capabilityId, Utils.StartCycle, Utils.CyclesCount),
                 lineId: "Interoperability",
+                 color: Utils.GREEN_COLOR,
                 mappingFunction: item => new StackedDrawerModel.Data
                 {
                     X = item.Interoperability,
@@ -53,6 +54,7 @@ namespace Tide.Dashboard.Controllers
             converter.AddGroup(
                 data: interoperabilityData.BaseInteroperability,
                 lineId: "Base Interoperability",
+                color: Utils.BLUE_COLOR,
                 mappingFunction: item => new StackedDrawerModel.Data
                 {
                     X = item.Interoperability,
@@ -62,6 +64,7 @@ namespace Tide.Dashboard.Controllers
             converter.AddGroup(
             data: interoperabilityData.CurrentInteroperability,
             lineId: "Current Interoperability",
+             color: Utils.YELLOW_COLOR,
             mappingFunction: item => new StackedDrawerModel.Data
             {
                 X = item.Interoperability,
@@ -93,6 +96,49 @@ namespace Tide.Dashboard.Controllers
             }
 
             return Json(converter.Convert());
+        }
+
+        public IActionResult Network(int capabilityId)
+        {
+
+            var convertor = new NeuronalAxesModelConvertor();
+
+            var helper = new CapabilityDatabaseHelper();
+
+            var data = helper.GetCapabilityEvolution(capabilityId);
+
+            HashSet<string> capabilities = new HashSet<string>();
+
+            foreach (var capabilityCycle in data)
+            {
+                // Add ccnode
+                var ccNode = convertor.AddNode(capabilityCycle.Item1.Number, capabilityCycle.Item1.Year.ToString(), 900, capabilityCycle.Item1.Number, capabilities.ToArray());
+
+                // Add standard and focus area nodes to cc node
+                var standardsNode = ccNode.AddChild("Standards", "", 300);
+                var faNode = ccNode.AddChild("Focus Areas", "", 300);
+
+                foreach (var standard in capabilityCycle.Item2)
+                {
+                    standardsNode.AddChild(standard.Item1.Name.Substring(0, Math.Min(4, standard.Item1.Name.Length)), standard.Item1.Name, standard.Item2 * 10);
+                }
+
+                foreach (var fa in capabilityCycle.Item3)
+                {
+                    faNode.AddChild(fa.Item1.Name.Substring(0, Math.Min(4, fa.Item1.Name.Length)), fa.Item1.Name, fa.Item2);
+                }
+
+                capabilities.Add(capabilityCycle.Item1.Number);
+            }
+
+            return Json(convertor.Convert());
+
+        }
+
+        public IActionResult Heatmap(int capabilityId)
+        {
+            var convertor = new HeatMapAxesModelConvert();
+            return null;
         }
     }
 }

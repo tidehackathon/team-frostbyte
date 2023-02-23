@@ -368,6 +368,31 @@ namespace Tide.Data.Ef.Migrations
                     b.ToTable("Nations");
                 });
 
+            modelBuilder.Entity("Tide.Data.Models.Nato.Ndpp", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Domain")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Ndpps");
+                });
+
             modelBuilder.Entity("Tide.Data.Models.Objectives.Objective", b =>
                 {
                     b.Property<int>("Id")
@@ -426,6 +451,15 @@ namespace Tide.Data.Ef.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("Scope")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TcCount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TcFail")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TcSuccess")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")

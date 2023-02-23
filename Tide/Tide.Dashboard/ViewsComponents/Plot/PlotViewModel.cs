@@ -7,5 +7,7 @@
         public string Name { get; set; } = null!;
 
         public int Height { get; set; } = 300;
+
+        public bool AddCard { get; set; } = true;
     }
 }

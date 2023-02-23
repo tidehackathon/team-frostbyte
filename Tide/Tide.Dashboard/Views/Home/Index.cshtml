@@ -1,15 +1,30 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+
+    var tabData = new List<(int Cycle, string ViewName)>()
+    {
+        (Cycle: 2019, "~/Views/Home/_TestView1.cshtml"),
+        (Cycle: 2020, "~/Views/Home/_TestView2.cshtml"),
+        (Cycle: 2021, "~/Views/Home/_TestView3.cshtml"),
+        (Cycle: 2022, "~/Views/Home/_TestView4.cshtml"),
+    };
+
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
- 
-<vc:plot id="chartdiv" name="Test plot"></vc:plot>
- 
+
+
+<vc:cycles-card title="test title" views-data="tabData" ></vc:cycles-card>
+
 @section scripts{
     <script>
+        CyclesCardComponent.init({
+            firstDisplay: function(year) {
+                alert(year);
+            }
+        });
     </script>
 }
