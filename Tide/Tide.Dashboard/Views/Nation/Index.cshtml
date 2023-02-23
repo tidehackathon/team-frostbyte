@@ -1,0 +1,25 @@
+﻿@using Tide.Dashboard.Models.Nation;
+@model NationViewModel
+
+@{
+    ViewData["Title"] = "Nation";
+}
+
+
+<div class="card shadow-sm mb-10">
+    <div class="card-body">
+        <h1>Nation: @Model.NationId</h1>
+        <label>Nation testing and interoperability statistics</label>
+    </div>
+</div>
+
+
+
+<input type="hidden" id="nation_id" value="@Model.NationId" />
+
+<vc:plot id="nationevolution" name="Nation Evolution" height="500"></vc:plot>
+ 
+
+@section scripts{
+        <script src="/js/nation/index.js" asp-append-version="true"></script>
+}

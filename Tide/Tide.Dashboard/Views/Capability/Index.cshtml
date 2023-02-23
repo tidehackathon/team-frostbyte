@@ -1,0 +1,33 @@
+﻿@using Tide.Dashboard.Models.Capability;
+@model CapabilityViewModel
+
+@{
+    ViewData["Title"] = "Capability";
+}
+
+
+<div class="card shadow-sm mb-10">
+    <div class="card-body">
+        <h1>Capability: @Model.CapabilityName</h1>
+        <label>Capability testing and interoperability statistics</label>
+    </div>
+</div>
+
+
+
+<input type="hidden" id="capability_id" value="@Model.CapabilityId" />
+
+<vc:plot id="focusareaevolution" name="Multidomain evolution of capability" height="650"></vc:plot>
+
+<div class="row px-0 mt-10">
+    <div class="col">
+        <vc:plot id="interoperabilitypartial" name="Interoperability (components)" height="300"></vc:plot>
+    </div>
+    <div class="col">
+        <vc:plot id="interoperabilityfull" name="Interoperability" height="300"></vc:plot>
+    </div>
+</div>
+
+@section scripts{
+    <script src="/js/capability/index.js" asp-append-version="true"></script>
+}

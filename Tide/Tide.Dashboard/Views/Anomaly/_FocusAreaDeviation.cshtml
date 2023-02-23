@@ -1,0 +1,35 @@
+﻿@using Tide.Dashboard.Models.Anomaly;
+@model AnomalyViewModel
+
+<div class="card shadow-sm" style="margin-top: 50px">
+    <div class="card-header">
+        <h3 class="card-title">Test template deviation overtime per focus area</h3>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover table-rounded table-striped border gy-7 gs-7">
+                <thead>
+                    <tr class="fw-semibold fs-6 text-gray-800 border-bottom-2 border-gray-200">
+                        <th>Focus Area</th>
+                        @for (int i = Model.StartCycle; i < Model.StartCycle + Model.CyclesCount; i++)
+                        {
+                            <th>CWIX @i</th>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var focusArea in Model.FocusAreas)
+                    {
+                        <tr>
+                            <td>@focusArea.FocusAreaName</td>
+                            @foreach (var item in focusArea.Items)
+                            {
+                                <td> <span class="badge @(item.DiffusionSimilarity <= 1m ? "badge-warning" : "badge-danger")"> @(item.DiffusionSimilarity.ToString("N2"))%</span></td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

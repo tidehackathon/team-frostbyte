@@ -12,7 +12,7 @@ def are_arrays_similar(arr1, arr2):
     larger_arr = arr1 if len(arr1) >= len(arr2) else arr2
 
     # Determine the threshold for a match
-    threshold = 0.7 * len(smaller_arr)
+    threshold = 0.5 * len(smaller_arr)
 
     # Count the number of matches between the two arrays
     num_matches = sum(1 for element in smaller_arr if element in larger_arr)
@@ -175,20 +175,22 @@ def updateJsonWithCompatibility(year1,year2,similarArray):
                     data=json.load(f)
                 data['compatibility'].append({"id":id2,"year":year2})
                 with open(file_path1, 'w') as f:
-                    json.dump(data, f)
+                    json.dump(data, f,indent=4)
                 with open(file_path2, 'r') as f:
                     data=json.load(f)
                 data['compatibility'].append({"id":id1,"year":year1})
                 with open(file_path2, 'w') as f:
-                    json.dump(data, f)
+                    json.dump(data, f,indent=4)
 
 if __name__ == "__main__":
-    excel('2019')
+    excel(sys.argv[1])
+    excel(sys.argv[2])
     year1=sys.argv[1]
     year2=sys.argv[2]
     exactSimilar = compareExactNames(year1,year2)
+    print('Exact: '+str(len(exactSimilar)))
     similar = compareCompleteNames(year1,year2,lv.leivSimilarityBy5)
-    
+    print('Similar: '+str(len(similar)))
     goodOnes = exactSimilar
     for pair in similar:
         if not checkIfNamesAreAlreadyInList(pair[0],pair[1],exactSimilar):

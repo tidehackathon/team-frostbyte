@@ -45,10 +45,20 @@ if __name__ == "__main__":
 
 
     path = "/Users/teodorcazamir/Desktop/frostbyte/data/{0}/cwix{1}/{2}"
-    cycles = ["20", "21", "22"]
+    cycles = ["19", "20", "21", "22"]
     items = ["tt"]
 
     parser(path, cycles, items)
+
+    tt_19 = []
+    for filename in os.listdir(path.format("normalized", "20", "tt")):
+        if filename.endswith(".json"):
+            absolute_path = os.path.abspath(os.path.join(
+                path.format("normalized", "20", "tt"), filename))
+            tt_19.append(TT.from_json_file(absolute_path))
+
+    for tt in tt_19:
+        tt.compute_diffusion(tt_19)
 
     tt_20 = []
     for filename in os.listdir(path.format("normalized", "20", "tt")):
@@ -100,14 +110,18 @@ if __name__ == "__main__":
     # '''
 
     # Timeline
+    
+    for tt in tt_19:
+        tt.compute_timeline([tt_20, tt_21, tt_22])
+
     for tt in tt_20:
-        tt.compute_timeline([tt_21, tt_22])
+        tt.compute_timeline([tt_19, tt_21, tt_22])
 
     for tt in tt_21:
-        tt.compute_timeline([tt_20, tt_22])
+        tt.compute_timeline([tt_19, tt_20, tt_22])
 
     for tt in tt_22:
-      tt.compute_timeline([tt_20, tt_21])
+      tt.compute_timeline([tt_19, tt_20, tt_21])
 
     # '''
     # with open("timeline.csv", "w") as f:

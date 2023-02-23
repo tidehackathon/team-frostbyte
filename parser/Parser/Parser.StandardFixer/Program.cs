@@ -13,8 +13,8 @@ string objDirectory = $@"D:\BlackOps\FrostByteRepo\frostbyte\data\normalized\{cy
 string ttDirectory = $@"D:\BlackOps\FrostByteRepo\frostbyte\data\normalized\{cycle}\tt";
 
 
-//ParseDirectory(ccDirectory, "standards");
-//ParseDirectory(objDirectory, "relevantstandards");
+ParseDirectory(ccDirectory, "standards");
+ParseDirectory(objDirectory, "relevantstandards");
 ParseDirectory(ttDirectory, "standards");
 
 

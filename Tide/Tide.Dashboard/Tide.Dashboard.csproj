@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Tide.Core\Tide.Core.csproj" />
+		<ProjectReference Include="..\Tide.Data.Ef\Tide.Data.Ef.csproj" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.9">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.9" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.9">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="wwwroot\lib\amcharts\" />
+	  <Folder Include="Views\MultiDomain\" />
+	  <Folder Include="wwwroot\js\multidomain\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Views\MultyDomain\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Content Remove="wwwroot\js\multydomain\" />
+	</ItemGroup>
+</Project>

@@ -113,7 +113,8 @@ class TT:
                 tokens = [rf"{non_alphanumeric_char}SUCCESS{non_alphanumeric_char}", 
                           rf"{non_alphanumeric_char}LIMITED SUCCESS{non_alphanumeric_char}", 
                           rf"{non_alphanumeric_char}PARTIAL SUCCESS{non_alphanumeric_char}",
-                            rf"{non_alphanumeric_char}INTEROPERABILITY ISSUE{non_alphanumeric_char}"]
+                            rf"{non_alphanumeric_char}INTEROPERABILITY ISSUE{non_alphanumeric_char}",
+                            rf"{non_alphanumeric_char}FAILURE{non_alphanumeric_char}",]
 
                 # Split using regex
                 criteria = re.split(r'|'.join(tokens), criteria_text)
@@ -286,6 +287,10 @@ class TT:
 
         for cycle in cycles:
             cycle_number = cycle[0].cycle
+
+            if cycle_number == self.cycle:
+                # I am in the current cycle
+                continue
 
             if len(self.timeline) > 0 and cycle_number in [x["cycle"] for x in self.timeline]:
                 # I already computed this cycle
