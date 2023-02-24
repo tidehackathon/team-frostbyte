@@ -114,11 +114,21 @@ Not ready to be commited yet.
   * multidomain page : /multidomain
   * anomalies page : /anomalies
 
-# 3. Insights
-#### KPI
-### Important notes
-### Processing
+# 3 Dialy report
 
-# 4. Suggestions
+### Day 1
+* After analyzing the data in Azure Storage, we have concluded that there is insufficient information available for us to extract the relevant data necessary to calculate the desired KPIs. Therefore, we have decided to scrape the data from the CWIX portal for the years 2019-2022 (TTs, TCs, CCs, FAs).
+* The next step involved extracting data from the HTML and normalizing it. This operation presented a challenge in itself, as the entities in the CWIX portal do not maintain their form over the years.
+* Once normalized, we began the process of temporally correlating the capabilities and test templates, which presented several issues as described in the "Challenges" section.
 
-# 5. Others
+### Day 2
+* We have started the data mining process to obtain a format that allows for easy extraction of the necessary information for calculating the KPIs.
+* After running the data extraction processes, we noticed a very low level of interoperability. Upon exploring the data, we identified several issues related to temporal correlation of the information, as described in the "Challenges" section, which we have referred to as "anomalies."
+* We have defined and executed the process for correcting the anomalies, including the diffusion calculation process mentioned in the "Challenges" section.
+* We have completed the process of extracting the necessary indicators for generating visual charts.
+
+### Day 3
+* After analyzing the data and indicators available, which provided us with a multitude of options, we had to choose a limited set of indicators and display methods to present the most relevant information to the user in a way that is easily understandable and quickly comprehensible.
+* The first set of charts was designed to show the average deviation of the entities, as well as how it has evolved over the CWIX cycles.
+* The next major step was to display the information about the capability regarding the evolution of interoperability over time, the adoption of new standards, and the involvement in multiple domains throughout the years, as well as interoperability per standard.
+* After successfully extracting all the relevant capability indicators and correlating them in a representative manner for our purposes, we were able to generate graphs for each nation to show its involvement in multiple domains and the level of interoperability over the CWIX cycles.
