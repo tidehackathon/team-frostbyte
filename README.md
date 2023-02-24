@@ -145,3 +145,13 @@ Not ready to be commited yet.
 * The first set of charts was designed to show the average deviation of the entities, as well as how it has evolved over the CWIX cycles.
 * The next major step was to display the information about the capability regarding the evolution of interoperability over time, the adoption of new standards, and the involvement in multiple domains throughout the years, as well as interoperability per standard.
 * After successfully extracting all the relevant capability indicators and correlating them in a representative manner for our purposes, we were able to generate graphs for each nation to show its involvement in multiple domains and the level of interoperability over the CWIX cycles.
+
+### Day 4
+* We have defined the most important indicators and their visualization methods in relation to the macro level of the CWIX cycles.
+* We have created a display method that allows for the visualization of the evolution of interoperability in focus areas over time.
+* We have combined all the available indicators to generate a more abstract and simplistic form of visualization of the essence of a CWIX exercise, which allows for easy visualization of the multi-domain interaction and the degree of interoperability between them, as well as the success/failure rate in relation to the tests between them.
+* We have started to explore the new data on the "NATO Defense Planning Process" that has been made available.
+* After a few attempts, we realized that using different correlation methods, we can extract the necessary standards for each NDPP capability, which allows us to correlate them with the capabilities in CWIX.
+* We have defined the method for correlating the NDPP capabilities with the extracted indicators, as well as the new indicators that arise from the new correlation.
+* For each capability, we have displayed its correlation with the NDPP capabilities. This has allowed us to estimate which NDPP capabilities a country is providing, as requested by NATO.
+* We have defined an easy-to-use method for visualizing the CWIX support in relation to NDPP, as well as the evolution of this connection over time.
