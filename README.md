@@ -177,10 +177,26 @@ Therefore, the templates raise the following issues:
 
 **Solution:**
 * We have calculated a diffusion degree for the templates from a year using the techniques mentioned above. We analyzed both the purpose of the templates as well as the necessary steps for performing the template, both in content and form and order, in order to detect template duplicates.
-* Am corelat temporar intre ciclurile cwix doar instantele principale ale template-urilor.
+* We have temporally correlated between CWIX cycles only the main instances of the templates.
 
 #### 4.2 Anomalies
 After analyzing the collected data, three major problems were detected that were generating anomalies:
 * Duplicate test templates -> problem corrected through diffusion.
 * Incorrect test cases (e.g. one partner said they have interoperability issues, the other partner said they did not test) -> problem corrected by ignoring the tests and updating the actual number of tests.
 * Tests planned in the CWIX portal but performed in IOCORE -> problem corrected by ignoring the tests and templates and updating the actual number of tests.
+
+# 5. Indicators
+##### 5.1 Maturity
+* The maturity of the Test Templates can be calculated as a logarithmic deviation over time, taking into account the persistence of the template over time and the acceptance rate per cycle.
+* The maturity of a capability can be calculated as a logarithmic deviation over time in relation to the success rate and error rate of tests correlated with the maturity declared by the Capability Lead, as well as the anomalies detected in tests.
+
+##### 5.2 Test Case Weight
+The weight of a test case can be calculated as a progression between the dates of the values defined for the result types correlated with the maturity of the template from which it derives (if it is a duplicate, the parent is used), as well as the maturity of the partner with whom it is testing.
+
+##### 5.3 Capability - Standard Interoperability
+For each standard that the capability has declared and created and performed tests for, a relevant interoperability score only for the capability can be calculated as an average of the test's weight in relation to the success rate and the deduction given by the failure rate, and the normalization of anomalies.
+##### 5.4 Capability Interoperability
+For each capability, interoperability can be calculated as a weighted average of the interoperability value per standard, along with the standard weight.
+For each capability, 2 degrees of interoperability have been calculated:
+* **Base Interoperability** represents the degree of interoperability given by tests on the capability's traditional standards. If in the following year the capability no longer tests on the standards from the current cycle, the base interoperability does not decrease. At the same time, the base interoperability does not decrease with a high failure rate on the newly adopted standards.
+* **Current Interoperability** represents the degree of interoperability given by the tests on the newly adopted standards.
