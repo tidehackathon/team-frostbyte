@@ -127,7 +127,7 @@ Not ready to be commited yet.
   * multidomain page : /multidomain
   * anomalies page : /anomalies
 
-# 3 Dialy report
+# 3. Dialy report
 
 ### Day 1
 * After analyzing the data in Azure Storage, we have concluded that there is insufficient information available for us to extract the relevant data necessary to calculate the desired KPIs. Therefore, we have decided to scrape the data from the CWIX portal for the years 2019-2022 (TTs, TCs, CCs, FAs).
@@ -155,3 +155,32 @@ Not ready to be commited yet.
 * We have defined the method for correlating the NDPP capabilities with the extracted indicators, as well as the new indicators that arise from the new correlation.
 * For each capability, we have displayed its correlation with the NDPP capabilities. This has allowed us to estimate which NDPP capabilities a country is providing, as requested by NATO.
 * We have defined an easy-to-use method for visualizing the CWIX support in relation to NDPP, as well as the evolution of this connection over time.
+
+# 4. Challenges
+#### 4.1 Temporal correlation
+In order to extract important indicators such as maturity and to better track the entities over time, temporal correlation between entities throughout the cycles is critical.
+##### 4.1.1 Capabilities
+Temporal correlation of capabilities is complicated for 2 main reasons:
+* The CWIX portal has no restrictions on the capability name, which is the only relevant indicator for capability and is a free text field. Therefore, capability leaders introduce different names for the capability over time, making temporal correlation challenging.
+* Capabilities are completely different between FMN spirals, to the point where application versions are not compatible with each other, and a version for a higher FMN spiral does not support a lower spiral version. Therefore, even if the only difference in the application name is a single letter (SP3 -> SP4), we are talking about two different applications. This further complicates temporal correlation of capabilities.
+
+**Solution :** 
+* We have used multiple mathematical algorithms for similarity comparison (Jaccard, Levenshtein, fuzzy matching), applied linearly to ensure that the limitations of one are compensated by another formula, both for the capability name and the standards. We made sure that there is at least a consistent percentage of standards between versions.
+* At the same time, we have used Azure Cognitive Services to extract relevant tokens, such as FMN spiral, so that we can differentiate between applications.
+
+##### 4.1.2 Test Templates
+The main problem with Test Templates is how they are freely created by users, as this leads to duplicating templates both between focus areas and surprisingly, within the same focus area.
+Therefore, the templates raise the following issues:
+* Duplicating templates between focus areas reduces the ability to track interactions between domains.
+* Duplicates end up being used mistakenly by those who create tests, which reduces the actual correlation level of the real template with the test cases.
+* Temporal correlation will be done probabilistically, as there are duplicates between years that are 100% identical, making it impossible to track the evolution of the template correctly over time.
+
+**Solution:**
+* We have calculated a diffusion degree for the templates from a year using the techniques mentioned above. We analyzed both the purpose of the templates as well as the necessary steps for performing the template, both in content and form and order, in order to detect template duplicates.
+* Am corelat temporar intre ciclurile cwix doar instantele principale ale template-urilor.
+
+#### 4.2 Anomalies
+After analyzing the collected data, three major problems were detected that were generating anomalies:
+* Duplicate test templates -> problem corrected through diffusion.
+* Incorrect test cases (e.g. one partner said they have interoperability issues, the other partner said they did not test) -> problem corrected by ignoring the tests and updating the actual number of tests.
+* Tests planned in the CWIX portal but performed in IOCORE -> problem corrected by ignoring the tests and templates and updating the actual number of tests.
