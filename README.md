@@ -1,4 +1,17 @@
-# team-frostbyte
+<p align="center">
+  <img width="400" height="400" src="frostbyte.svg">
+</p>
+
+Solution is organised in 5 directories which contains scripts and applications that operates individually.
+
+|Component name|Description|
+|-------------------------------|-----------------------------|
+|`Download`| Contains the application which can be used to do the scrapping (download) process from Tide |
+|`Parser`| Contains the application and scripts which may be run in order to obtain a first form of data (stored as json files) and the scripts used to do a part of enhancement |
+|`Research`| Thid directory holds the scripts / applications used for POC or testing different ideas which may be used in other solution applications |
+|`Scripts`| Holds python scripts which are used to do most of enhancement and data augmentation  |
+|`Tide`| This directory represents the host for web server app and console applications which store the data created by all other components |
+
 # 1. Code
 ## 1.1.Scrapping
 To acquire information from the TIDE platform, the solution in the Downloader directory must be utilized. It is imperative that the resulting data adheres to the appropriate folder structure for each year as established within the repository, with the option to generate these folders automatically set as default.
